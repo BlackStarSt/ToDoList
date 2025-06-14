@@ -1,0 +1,7 @@
+<form class="ctn_new" (ngSubmit)="onSubmit(refLocalForm)" #refLocalForm="ngForm" ngNativeValidate>
+    <input type="text" class="newTask_input" 
+                        ngModel name="myContentngForm" 
+                        maxlength="61" required
+                        oninvalid="this.setCustomValidity('Campo Vazio')" oninput="setCustomValidity('')">
+    <button type="submit" class="newTask_btn">Ok</button>
+</form>

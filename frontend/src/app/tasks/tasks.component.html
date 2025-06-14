@@ -1,0 +1,18 @@
+<div class="div_itens">
+    <div class="item_div">
+        <input 
+            type="checkbox" 
+            name="check" 
+            [checked]="taskItem.completed" 
+            *ngIf="taskItem._id"
+            (change)="onCheckChange(taskItem._id, $event)" 
+            [attr.aria-checked]="taskItem.completed ? 'true' : 'false'"
+        />
+        <label class="itens">{{ taskItem.date | date: 'dd/MM/yyyy - HH:mm' }}: {{taskItem.content}}</label>
+    </div>
+    <div class="div_btn_tsk" *ngIf="taskItem.username === currentUser?.user">
+        <button type="button" class="btn_tsk" (click)="onDelete()">
+            <img class="trash" src="https://img.icons8.com/ios/50/full-trash--v1.png" alt="Excluir tarefa" />
+        </button>
+    </div>
+</div>
