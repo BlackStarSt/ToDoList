@@ -1,0 +1,7 @@
+# Ignorar dependências do Frontend e Backend
+/frontend/node_modules/
+/backend/node_modules/
+
+# Ignorar arquivos de configuração do Editor/IDE
+.vscode/
+.idx/
