@@ -26,7 +26,7 @@ mongoose.connect(process.env.MONGO_URI)
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(cors({
-  origin: '*',
+  origin: 'cheerful-blancmange-bde93c.netlify.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
