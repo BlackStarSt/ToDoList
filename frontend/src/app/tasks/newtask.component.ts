@@ -27,7 +27,6 @@ export class NewTasksComponent {
         if (user) {
            const taskAux = new Task(user.user, form.value.myContentngForm);
            this.tasksService.addTask(taskAux);
-           console.log(taskAux);
         } else {
             alert('É preciso estar logado para enviar mensagem.');
             this.router.navigate(['/login']);
