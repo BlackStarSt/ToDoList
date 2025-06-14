@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require('path');
 
+require('dotenv').config();
+
 const cors = require('cors');
 
 const appRoutes = require('./routes/app');
@@ -12,7 +14,7 @@ const app = express();
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/ToDoList')
+mongoose.connect(process.env.MONGO.URI)
   .then(() => {
     console.log('Conexão com o MongoDB estabelecida com sucesso.');
   })
