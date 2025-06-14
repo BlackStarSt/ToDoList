@@ -45,7 +45,7 @@ export class ListTasksComponent implements OnInit {
             this.tasksService.getTasks().subscribe();
 
             this.tasksService.getTasksObservable().subscribe((tasks) => {
-                this.taskS = tasks;
+                this.taskS = tasks.filter(task => task.username === this.currentUser?.user);
             });
         }
     }
