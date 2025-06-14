@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { AppConfig } from "../api.config";
 
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
@@ -9,6 +10,8 @@ import { User } from "./user.model";
 @Injectable({ providedIn: 'root' })
 
 export class UserService {
+    private apiUrl = AppConfig.apiUrl;
+
     private currentUser: User | null = null;
 
     constructor(private http: HttpClient) {
@@ -24,7 +27,7 @@ export class UserService {
     }
 
     addAccount(user: { user: string, senha: string }) {
-        this.http.post<User>('/api/users', user).subscribe(
+        this.http.post<User>(`${this.apiUrl}/api/users`, user).subscribe(
             (response) => {
                 alert('Conta criada com sucesso!');
             },
@@ -35,7 +38,7 @@ export class UserService {
     }
 
     getAccount(account: User): Observable<User | null> {
-        return this.http.get<User[]>('/api/users').pipe(
+        return this.http.get<User[]>(`${this.apiUrl}/api/users`).pipe(
             map((users: User[]) => {
                 if (users && users.length > 0) {
                     const findUser = users.find(u => u.user === account.user && u.senha === account.senha);
@@ -52,7 +55,7 @@ export class UserService {
     }
 
     getAllAccounts(): Observable<User[]> {
-        return this.http.get<User[]>('/api/users');
+        return this.http.get<User[]>(`${this.apiUrl}/api/users`);
     }
 
     setCurrentUser(user: User | null) {
