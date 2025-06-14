@@ -5,3 +5,4 @@
 # Ignorar arquivos de configuração do Editor/IDE
 .vscode/
 .idx/
+backend/.env 
