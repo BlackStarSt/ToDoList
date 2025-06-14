@@ -6,3 +6,5 @@
 .vscode/
 .idx/
 backend/.env 
+# Local Netlify folder
+.netlify
